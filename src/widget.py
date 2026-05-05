@@ -36,3 +36,5 @@ def get_date(date: str) -> str:
 
 
 print(get_date("2024-03-11T02:26:18.671407"))
+
+# тестовые изменения
