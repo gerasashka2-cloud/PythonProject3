@@ -31,6 +31,7 @@ for data in input_data:
 
 
 def get_date(date: str) -> str:
+    """ Функция возвращает строку с датой в формате ДД.ММ.ГГГГ """
     return f"{date[8:10]}-{date[5:7]}-{date[0:4]}"
 
 
