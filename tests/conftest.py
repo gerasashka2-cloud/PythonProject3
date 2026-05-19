@@ -19,17 +19,31 @@ def invalid_card_numbers():
 
 
 @pytest.fixture
-def invalid_input_card_numbers():
+def valid_account_number():
     return [
-        None,
-        "not a valid number",
+        "12345678901234567890",
+
     ]
 
 
 @pytest.fixture
-def valid_account_number():
+def data():
     return [
-        "12345678901234567890"
+        {"date": "2019-07-03T18:35:29.512364"},
+        {"date": "2018-06-30T02:08:58.425572"},
     ]
 
 
+@pytest.fixture
+def invalid_data():
+    return [
+        {'date': 'invalid-data-format'},
+    ]
+
+
+@pytest.fixture
+def invalid_input():
+    return [
+        None,
+        "not a number",
+    ]
