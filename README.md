@@ -59,6 +59,8 @@ processing.py: функции для фильтрации и сортировк�
 
 widget.py: функции для обработки и преобразования данных.
 
+generators.py: функция содержит генераторы для обработки данных.
+
 
 
 		• tests/: содержит тесты для модулей проекта.
@@ -69,6 +71,8 @@ test_masks.py: тесты для функций из masks.py.
 test_processing.py: тесты для функций из processing.py.
 
 test_widget.py: тесты для функций из widget.py.
+
+test_generators.py: тесты для функции из generators.py.
 
 
 
