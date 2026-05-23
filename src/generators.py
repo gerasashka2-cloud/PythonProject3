@@ -1,8 +1,7 @@
-import random
 from typing import Any, Dict, Generator, List
 
 
-def filter_by_currency(transactions: List[Dict[str, Any]], currency_code: str):
+def filter_by_currency(transactions: List[Dict[str, Any]], currency_code: str) -> Generator[dict[str, Any], Any, None]:
     """ Функция фильтрует транзакции по заданной валюте """
     for transaction in transactions:
         if transaction.get('operationAmount', {}).get('currency', {}).get('code') == currency_code:
