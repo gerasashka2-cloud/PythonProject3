@@ -1,14 +1,15 @@
 import pytest
-from src.generators import filter_by_currency,transaction_descriptions,card_number_generator
+
+from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 
-    # Проверка фильтрации по валюте USD
+# Проверка фильтрации по валюте USD
 def test_filter_by_currency(transactions):
     # Проверка фильтрации по валюте USD
     usd_transactions = list(filter_by_currency(transactions, "USD"))
     assert len(usd_transactions) == 2
-    assert usd_transactions[0]['id'] == 939719570
-    assert usd_transactions[1]['id'] == 142264268
+    assert usd_transactions[0]["id"] == 939719570
+    assert usd_transactions[1]["id"] == 142264268
 
     # Проверка фильтрации по отсутствующей валюте
     eur_transactions = list(filter_by_currency(transactions, "JPY"))
@@ -17,7 +18,7 @@ def test_filter_by_currency(transactions):
     # Проверка фильтрации по валюте RUB
     rub_transactions = list(filter_by_currency(transactions, "RUB"))
     assert len(rub_transactions) == 1
-    assert rub_transactions[0]['id'] == 654321098
+    assert rub_transactions[0]["id"] == 654321098
 
     # Проверка обработки пустого списка
     empty_transactions = list(filter_by_currency([], "USD"))
@@ -39,7 +40,7 @@ def test_transaction_descriptions(transactions):
     assert len(organization_descriptions) == 2
 
     # Проверяем, что идентификаторы транзакций с описанием "Перевод организации" соответствуют ожидаемым
-    ids = [trans['id'] for trans in transactions if trans['description'] == "Перевод организации"]
+    ids = [trans["id"] for trans in transactions if trans["description"] == "Перевод организации"]
     assert ids[0] == 939719570
     assert ids[1] == 654321098
 
@@ -49,6 +50,7 @@ def test_transaction_descriptions(transactions):
     assert len(empty_descriptions) == 0
     assert list(transaction_descriptions(empty_transactions)) == []  # Убедимся, что возвращается пустой генератор
 
+
 def test_card_number_generator():
     # Тестирование генератора на корректное создание номеров карт
     generated_cards = list(card_number_generator(1, 5))
@@ -57,7 +59,7 @@ def test_card_number_generator():
         "0000 0000 0000 0002",
         "0000 0000 0000 0003",
         "0000 0000 0000 0004",
-        "0000 0000 0000 0005"
+        "0000 0000 0000 0005",
     ]
 
     # Тестирование генератора с большим диапазоном
@@ -73,7 +75,7 @@ def test_card_number_generator():
         "9999 9999 9999 9987",
         "9999 9999 9999 9988",
         "9999 9999 9999 9989",
-        "9999 9999 9999 9990"
+        "9999 9999 9999 9990",
     ]
 
     # Проверка на некорректные значения
