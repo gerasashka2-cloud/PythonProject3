@@ -61,6 +61,8 @@ widget.py: функции для обработки и преобразован�
 
 generators.py: функция содержит генераторы для обработки данных.
 
+decorators.py: содержит декоратор для функций.
+
 
 
 		• tests/: содержит тесты для модулей проекта.
@@ -73,6 +75,8 @@ test_processing.py: тесты для функций из processing.py.
 test_widget.py: тесты для функций из widget.py.
 
 test_generators.py: тесты для функции из generators.py.
+
+test_decorators.py: тесты для функции из decorators.py
 
 
 
