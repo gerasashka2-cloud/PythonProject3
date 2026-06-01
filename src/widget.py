@@ -1,4 +1,6 @@
-from masks import get_mask_account, get_mask_card_number
+from datetime import datetime
+
+from src.masks import get_mask_account, get_mask_card_number
 
 input_data = [
     "Maestro 1596837868705199",
@@ -20,6 +22,8 @@ def mask_account_card(arg: str) -> str:
         return f"{arg[0:-16]}{masked_card}"
     elif "Счет" in arg:
         account_number = arg.split()[1]
+        if len(account_number) != 20:
+            return "Номер счета должен содержать 20 цифр"
         masked_account = get_mask_account(account_number)
         return f"{arg[0:-20]}{masked_account}"
     else:
@@ -30,11 +34,18 @@ for data in input_data:
     print(mask_account_card(data))
 
 
-def get_date(date: str) -> str:
-    """ Функция возвращает строку с датой в формате ДД.ММ.ГГГГ """
-    return f"{date[8:10]}-{date[5:7]}-{date[0:4]}"
+def get_date(date_string: str) -> str:
+    """
+    Функция принимает строку с датой и временем в формате
+    ISO 8601 и возвращает дату в формате YYYY-MM-DD.
+    """
+    if not date_string:
+        raise ValueError("Строка не может быть пустой")
+    try:
+        dt = datetime.fromisoformat(date_string)
+        return dt.date().isoformat()
+    except ValueError:
+        raise ValueError("Неверный формат даты")
 
 
 print(get_date("2024-03-11T02:26:18.671407"))
-
-# тестовые изменения
