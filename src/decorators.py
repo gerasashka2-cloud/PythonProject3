@@ -1,10 +1,16 @@
 from functools import wraps
+from typing import Any, Callable, Optional
 
 
-def log(filename=None) -> None:
-    def decorator(func):
+def log(filename: Optional[str] = None) -> Callable:
+    """
+    Декоратор , который  логирует  начало и конец выполнения функции, ее результаты или возникшие ошибки.
+    Должен принимать необязательный аргумент 'filename', который определяет,
+    куда будут записываться логи (в файл или в консоль)
+    """
+    def decorator(func: Callable) -> Callable:
         @wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             func_name = func.__name__
             try:
                 result = func(*args, **kwargs)
@@ -26,7 +32,6 @@ def log(filename=None) -> None:
         return wrapper
 
     return decorator
-
 
 # Пример 1: Логирование в файл `mylog.txt`
 @log(filename="mylog.txt")
