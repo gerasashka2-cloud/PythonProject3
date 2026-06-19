@@ -1,0 +1,113 @@
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
+add ok
+add error: unsupported operand type(s) for +: 'int' and 'str'.Inputs: args(3, '5'), kwargs{}
+multiply ok
+multiply ok
+divide ok
+subtract ok
+subtract error: unsupported operand type(s) for -: 'int' and 'str'.Inputs: args(10, '5'), kwargs{}
+greet ok
