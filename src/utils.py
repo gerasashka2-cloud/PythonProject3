@@ -2,7 +2,7 @@ import json
 
 
 def load_operations(file_path: str = "data/operations.json") -> dict:
-    """Загружает транзакции из JSON-файла"""
+    """ Загружает транзакции из JSON-файла """
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             operations = json.load(f)
