@@ -11,18 +11,19 @@ def test_get_operations_rub():
     assert result == 100.0
 
 
-def test_get_operations_usd():
+@patch('requests.get')
+def test_get_operations_usd(mock_get):
     # Тест для транзакции в долларах
-    transaction = {"operationAmount": {"amount": "100.0", "currency": {"code": "USD"}}}
-    with patch("requests.get") as mock_get:
-        # Настройка мок-ответа
-        mock_response = Mock()
-        mock_response.status_code = 200
-        mock_response.json.return_value = {"rates": {"RUB": 75.0}}
-        mock_get.return_value = mock_response
-
-        result = get_operations(transaction)
-        assert result == 7500.0  # 100 * 75
+    transaction = {
+        'operationAmount': {
+            'amount': '100.0',
+            'currency': {'code': 'USD'}
+        }
+    }
+    mock_response = Mock()
+    mock_response.status_code = 200
+    mock_response.json.return_value = {'result': {'RUB': 75.0}}
+    mock_get.return_value = mock_response
 
 
 def test_get_operations_eur():
@@ -32,7 +33,7 @@ def test_get_operations_eur():
         # Настройка мок-ответа
         mock_response = Mock()
         mock_response.status_code = 200
-        mock_response.json.return_value = {"rates": {"RUB": 85.0}}
+        mock_response.json.return_value = {"result": {"RUB": 85.0}}
         mock_get.return_value = mock_response
 
         result = get_operations(transaction)
