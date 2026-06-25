@@ -63,6 +63,8 @@ generators.py: функция содержит генераторы для об�
 
 decorators.py: содержит декоратор для функций.
 
+csv_excel.py: Читает финансовые транзакции из csv и excel файлов
+
 
 
 		• tests/: содержит тесты для модулей проекта.
@@ -78,7 +80,7 @@ test_generators.py: тесты для функции из generators.py.
 
 test_decorators.py: тесты для функции из decorators.py
 
-
+test_csv_excel.py: тесты для функций из csv_excel.py
 
 
 Установка и запуск тестов

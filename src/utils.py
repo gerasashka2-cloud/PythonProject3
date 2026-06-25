@@ -1,7 +1,6 @@
 import json
 import logging
 
-
 logger = logging.getLogger('utils')
 logger.setLevel(logging.INFO)
 file_hendler = logging.FileHandler("./logs/utils.log" 'w')
