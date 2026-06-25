@@ -35,7 +35,7 @@ def get_operations(transaction: dict) -> float:
             if response.status_code != 200:
                 return 0.0
             data = response.json()
-            rub_rate = data.get("rates", {}).get("RUB")
+            rub_rate = data.get("result", {}).get("RUB")
 
             if rub_rate is None:
                 return 0.0
