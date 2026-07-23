@@ -7,7 +7,6 @@ import pandas as pd
 # Настройка логгера
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
 os.makedirs("logs", exist_ok=True)
 file_handler = logging.FileHandler("logs/csv_excel.log", mode="w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
@@ -15,7 +14,7 @@ file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
 
-def read_transactions_from_csv(file_path: str) -> List[Dict[str, Any]]:
+def read_transactions_from_csv(file_path: str = 'data/transactions.csv') -> List[Dict[str, Any]]:
     """
     Читает финансовые транзакции из CSV-файла.
     """
@@ -38,10 +37,10 @@ def read_transactions_from_csv(file_path: str) -> List[Dict[str, Any]]:
 
     except Exception as e:
         logger.error(f"Ошибка при чтении CSV: {e}")
-        raise
+        return []
 
 
-def read_transactions_from_excel(file_path: str) -> List[Dict[str, Any]]:
+def read_transactions_from_excel(file_path: str = 'data/transactions_excel.xlsx') -> List[Dict[str, Any]]:
     """
     Читает финансовые транзакции из Excel-файла.
     """
@@ -64,4 +63,4 @@ def read_transactions_from_excel(file_path: str) -> List[Dict[str, Any]]:
 
     except Exception as e:
         logger.error(f"Ошибка при чтении Excel: {e}")
-        raise
+        return []
