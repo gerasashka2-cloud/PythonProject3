@@ -43,7 +43,7 @@ def get_date(date_string: str) -> str:
         raise ValueError("Строка не может быть пустой")
     try:
         dt = datetime.fromisoformat(date_string)
-        return dt.strftime("%d-%m-%Y")  # Форматирование даты в DD-MM-YYYY
+        return dt.strftime("%d.%m.%Y")  # Форматирование даты в DD-MM-YYYY
     except ValueError:
         raise ValueError("Неверный формат даты")
 

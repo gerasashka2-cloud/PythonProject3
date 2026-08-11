@@ -151,13 +151,14 @@ def filter_by_currency(transactions: List[Dict[str, Any]]) -> List[Dict[str, Any
 
 def format_amount(tx: Dict[str, Any]) -> str:
     """Извлекает и форматирует сумму с валютой."""
-    amount_data = tx.get("operationAmount", {})
-    if isinstance(amount_data, dict):
-        amount = amount_data.get("amount", "0")
-        curr_info = amount_data.get("currency", {})
-        currency = (
-            curr_info.get("name", curr_info.get("code", "RUB")) if isinstance(curr_info, dict) else str(curr_info)
-        )
+    if "operationAmount" in tx:
+        amount_data = tx.get("operationAmount", {})
+        if isinstance(amount_data, dict):
+            amount = amount_data.get("amount", "0")
+            currency = amount_data.get("currency", {}).get("code", "RUB")
+        else:
+            amount = tx.get("amount", "0")
+            currency = tx.get("currency", "RUB")
     else:
         amount = tx.get("amount", "0")
         currency = tx.get("currency", "RUB")
@@ -172,6 +173,7 @@ def format_amount(tx: Dict[str, Any]) -> str:
         "EUR": "EUR",
         "GBP": "GBP",
     }
+
     return f"{amount} {currency_map.get(str(currency).upper(), currency)}"
 
 def format_transaction(tx: Dict[str, Any]) -> str:
