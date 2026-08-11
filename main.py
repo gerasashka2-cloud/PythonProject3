@@ -11,7 +11,7 @@ from src.utils import load_operations
 from src.widget import get_date, mask_account_card
 
 # Фиксированные пути к файлам с данными
-DATA_DIR: Path = Path(__file__).resolve().parent / ".data"
+DATA_DIR: Path = Path(__file__).resolve().parent / "data"
 FILE_PATHS: Dict[str, str] = {
     "json": str(DATA_DIR / "operations.json"),
     "csv": str(DATA_DIR / "transactions.csv"),

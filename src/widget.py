@@ -37,13 +37,13 @@ for data in input_data:
 def get_date(date_string: str) -> str:
     """
     Функция принимает строку с датой и временем в формате
-    ISO 8601 и возвращает дату в формате YYYY-MM-DD.
+    ISO 8601 и возвращает дату в формате DD-MM-YYYY.
     """
     if not date_string:
         raise ValueError("Строка не может быть пустой")
     try:
         dt = datetime.fromisoformat(date_string)
-        return dt.date().isoformat()
+        return dt.strftime("%d-%m-%Y")  # Форматирование даты в DD-MM-YYYY
     except ValueError:
         raise ValueError("Неверный формат даты")
 
