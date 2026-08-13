@@ -57,6 +57,10 @@ def read_transactions_from_excel(file_path: str = 'data/transactions_excel.xlsx'
             logger.error("Excel файл пуст")
             raise ValueError("Excel файл пуст")
 
+        if 'currency_name' not in df.columns and 'currency_code' not in df.columns:
+            logger.error("Отсутствуют необходимые столбцы: currency_name или currency_code")
+            raise ValueError("Отсутствуют необходимые столбцы: currency_name или currency_code")
+
         transactions = df.to_dict(orient="records")
         logger.info(f"Успешно прочитано {len(transactions)} транзакций из Excel")
         return transactions

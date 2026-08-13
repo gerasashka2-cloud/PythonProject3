@@ -1,3 +1,4 @@
+import re
 from datetime import datetime
 
 from src.masks import get_mask_account, get_mask_card_number
@@ -16,10 +17,12 @@ input_data = [
 
 def mask_account_card(arg: str) -> str:
     """Проверяем, является ли аргумент номером карты или счета"""
-    if any(card in arg for card in ["MasterCard", "Visa", "Maestro"]):
-        card_number = arg[-16:].strip()
+    # Используем регулярное выражение для поиска номеров карт
+    card_number_match = re.search(r'\d{16,19}', arg)
+    if card_number_match:
+        card_number = card_number_match.group()[-16:]  # Извлекаем последние 16 цифр
         masked_card = get_mask_card_number(card_number)
-        return f"{arg[0:-16]}{masked_card}"
+        return f"{arg[0:card_number_match.start()]}{masked_card}"
     elif "Счет" in arg:
         account_number = arg.split()[1]
         if len(account_number) != 20:
@@ -28,7 +31,6 @@ def mask_account_card(arg: str) -> str:
         return f"{arg[0:-20]}{masked_account}"
     else:
         return "Неизвестный формат"  # Обработка других случаев
-
 
 for data in input_data:
     print(mask_account_card(data))

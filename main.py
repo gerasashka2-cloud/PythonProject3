@@ -151,17 +151,20 @@ def filter_by_currency(transactions: List[Dict[str, Any]]) -> List[Dict[str, Any
 
 def format_amount(tx: Dict[str, Any]) -> str:
     """Извлекает и форматирует сумму с валютой."""
+    amount = "0"
+    currency = ""
+
     if "operationAmount" in tx:
         amount_data = tx.get("operationAmount", {})
         if isinstance(amount_data, dict):
             amount = amount_data.get("amount", "0")
-            currency = amount_data.get("currency", {}).get("code", "RUB")
-        else:
-            amount = tx.get("amount", "0")
-            currency = tx.get("currency", "RUB")
+            currency = amount_data.get("currency", {}).get("code", None)
     else:
         amount = tx.get("amount", "0")
-        currency = tx.get("currency", "RUB")
+        currency = tx.get("currency", None)
+
+    if currency is None:
+        return f"Сумма: {amount}, валюта не указана"
 
     currency_map = {
         "RUB": "руб.",
