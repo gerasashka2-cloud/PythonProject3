@@ -165,7 +165,7 @@ def format_amount(tx: Dict[str, Any]) -> str:
             currency = amount_data.get("currency", {}).get("code", None)
     else:
         amount = tx.get("amount", "0")
-        currency = tx.get("currency", None)
+        currency = tx.get("currency_code", None)
 
     if currency is None:
         return f"{amount}"
@@ -198,8 +198,10 @@ def format_transaction(tx: Dict[str, Any]) -> str:
         accounts.append(mask_account_card(str(tx["to"])))
 
     result = f"{date_formatted} {description}\n"
-    if accounts:
+    if accounts[0]:
         result += " -> ".join(accounts) + "\n"
+    else:
+        result += accounts[1] + "\n"
     result += f"Сумма: {format_amount(tx)}"
     return result
 

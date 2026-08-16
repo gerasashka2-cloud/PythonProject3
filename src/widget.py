@@ -31,7 +31,7 @@ def mask_account_card(arg: str) -> str:
         return f"{arg[0:card_number_match.start()]}{masked_card}"
 
     else:
-        return "Неизвестный формат"  # Обработка других случаев
+        return False
 
 for data in input_data:
     print(mask_account_card(data))
