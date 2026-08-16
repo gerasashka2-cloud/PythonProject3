@@ -116,6 +116,8 @@ def get_valid_status(available_statuses: List[str]) -> Optional[str]:
             return normalized_input
         else:
             print(f'Статус операции "{user_input}" недоступен.')
+
+
 def filter_by_status(transactions: List[Dict[str, Any]], status: str) -> List[Dict[str, Any]]:
     """Фильтрует транзакции по статусу."""
     return [t for t in transactions if str(t.get("state", "")).upper() == status]
@@ -129,6 +131,7 @@ def sort_by_date(transactions: List[Dict[str, Any]], ascending: bool = True) -> 
         return date_val.split("T")[0] if "T" in date_val else date_val
 
     return sorted(transactions, key=parse_date, reverse=not ascending)
+
 
 def filter_by_currency(transactions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """Фильтрует только рублевые транзакции."""
@@ -149,6 +152,7 @@ def filter_by_currency(transactions: List[Dict[str, Any]]) -> List[Dict[str, Any
             filtered.append(t)
     return filtered
 
+
 def format_amount(tx: Dict[str, Any]) -> str:
     """Извлекает и форматирует сумму с валютой."""
     amount = "0"
@@ -164,7 +168,7 @@ def format_amount(tx: Dict[str, Any]) -> str:
         currency = tx.get("currency", None)
 
     if currency is None:
-        return f"Сумма: {amount}, валюта не указана"
+        return f"{amount}"
 
     currency_map = {
         "RUB": "руб.",
@@ -178,6 +182,7 @@ def format_amount(tx: Dict[str, Any]) -> str:
     }
 
     return f"{amount} {currency_map.get(str(currency).upper(), currency)}"
+
 
 def format_transaction(tx: Dict[str, Any]) -> str:
     """Форматирует одну транзакцию для вывода."""

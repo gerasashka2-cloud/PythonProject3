@@ -19,16 +19,17 @@ def mask_account_card(arg: str) -> str:
     """Проверяем, является ли аргумент номером карты или счета"""
     # Используем регулярное выражение для поиска номеров карт
     card_number_match = re.search(r'\d{16,19}', arg)
-    if card_number_match:
-        card_number = card_number_match.group()[-16:]  # Извлекаем последние 16 цифр
-        masked_card = get_mask_card_number(card_number)
-        return f"{arg[0:card_number_match.start()]}{masked_card}"
-    elif "Счет" in arg:
+    if "Счет" in arg:
         account_number = arg.split()[1]
         if len(account_number) != 20:
             return "Номер счета должен содержать 20 цифр"
         masked_account = get_mask_account(account_number)
         return f"{arg[0:-20]}{masked_account}"
+    elif card_number_match:
+        card_number = card_number_match.group()[-16:]  # Извлекаем последние 16 цифр
+        masked_card = get_mask_card_number(card_number)
+        return f"{arg[0:card_number_match.start()]}{masked_card}"
+
     else:
         return "Неизвестный формат"  # Обработка других случаев
 
